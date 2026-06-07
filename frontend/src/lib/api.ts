@@ -1,6 +1,24 @@
 import { env } from '$env/dynamic/public';
 
-const API_BASE = env.PUBLIC_API_URL ?? 'https://spur-qf4p.onrender.com';
+const DEPLOYED_API_BASE = 'https://spur-qf4p.onrender.com';
+
+function resolveApiBase(): string {
+  const configured = env.PUBLIC_API_URL?.trim();
+
+  if (!configured) return DEPLOYED_API_BASE;
+
+  const isBrowser = typeof window !== 'undefined';
+  const isDeployedFrontend = isBrowser && !window.location.hostname.includes('localhost');
+  const isLocalApi = configured.includes('localhost') || configured.includes('127.0.0.1');
+
+  if (isDeployedFrontend && isLocalApi) {
+    return DEPLOYED_API_BASE;
+  }
+
+  return configured;
+}
+
+const API_BASE = resolveApiBase();
 
 export interface ChatMessage {
   id: string;
