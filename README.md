@@ -2,7 +2,7 @@
 
 A mini customer support chat app where an AI agent answers questions about a fictional e-commerce store (**CozyNest Home Goods**) using the Google Gemini API.
 
-**Live demo:** _(add your deployed URL here)](https://spur-gvj99ebpt-dabbumothseras-projects.vercel.app/)_
+**Live demo:** _(https://spur-amber.vercel.app/)_
 
 ---
 
