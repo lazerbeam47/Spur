@@ -6,21 +6,10 @@ import chatRouter from './routes/chat';
 
 const app = express();
 
-const allowedOrigins = new Set([
-  'http://localhost:5173',
-  'https://spur-gvj99ebpt-dabbumothseras-projects.vercel.app',
-  config.corsOrigin,
-]);
-
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || config.corsOrigin === '*' || allowedOrigins.has(origin) || origin.endsWith('.vercel.app')) {
-        callback(null, true);
-        return;
-      }
-
-      callback(null, false);
+      callback(null, true);
     },
   })
 );
