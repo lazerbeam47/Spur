@@ -1,6 +1,6 @@
 import { env } from '$env/dynamic/public';
 
-const API_BASE = env.PUBLIC_API_URL ?? 'http://localhost:3001';
+const API_BASE = env.PUBLIC_API_URL ?? 'https://spur-qf4p.onrender.com';
 
 export interface ChatMessage {
   id: string;

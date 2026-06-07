@@ -48,7 +48,7 @@ Open http://localhost:5173 and start chatting.
 | `GEMINI_API_KEY` | _(required)_ | Google Gemini API key |
 | `PORT` | `3001` | Server port |
 | `DATABASE_PATH` | `./data/chat.db` | SQLite database file path |
-| `CORS_ORIGIN` | `http://localhost:5173` | Allowed frontend origin |
+| `CORS_ORIGIN` | `*` | Allowed frontend origin. Set this to your Vercel URL in production. |
 | `MAX_MESSAGE_LENGTH` | `2000` | Max chars per message (truncated if exceeded) |
 | `MAX_HISTORY_MESSAGES` | `20` | Conversation history sent to LLM |
 | `GEMINI_MODEL` | `gemini-2.0-flash` | Gemini model name |
@@ -58,7 +58,7 @@ Open http://localhost:5173 and start chatting.
 
 | Variable | Default | Description |
 |---|---|---|
-| `PUBLIC_API_URL` | `http://localhost:3001` | Backend API base URL |
+| `PUBLIC_API_URL` | `https://spur-qf4p.onrender.com` | Backend API base URL |
 
 ---
 
@@ -175,14 +175,14 @@ No seed data required — conversations are created on first message.
 1. Create a Web Service pointing to `backend/`
 2. Build: `npm install && npm run build`
 3. Start: `npm start`
-4. Set env vars: `GEMINI_API_KEY`, `CORS_ORIGIN` (your frontend URL)
+4. Set env vars: `GEMINI_API_KEY`, `CORS_ORIGIN` (your frontend URL; defaults to `*` if unset)
 5. Note: SQLite on ephemeral filesystems loses data on restart. For production, swap to PostgreSQL.
 
 ### Frontend (e.g. Vercel / Netlify)
 
 1. Root directory: `frontend/`
 2. Build: `npm run build`
-3. Set `PUBLIC_API_URL` to your deployed backend URL
+3. Set `PUBLIC_API_URL` to `https://spur-qf4p.onrender.com`
 
 ---
 
