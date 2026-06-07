@@ -144,7 +144,7 @@ Spur/
 ## LLM Integration
 
 - **Provider:** Google Gemini (`@google/generative-ai`)
-- **Model:** `gemini-2.0-flash` (fast, cost-effective)
+- **Model:** `gemini-2.5-flash` (fast, cost-effective)
 - **Prompting:**
   - System instruction with store persona + full FAQ knowledge base
   - Conversation history (last 20 messages) passed as multi-turn content
